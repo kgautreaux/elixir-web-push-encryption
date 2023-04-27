@@ -55,7 +55,8 @@ defmodule WebPushEncryption.Push do
       |> Map.merge(%{
         "TTL" => to_string(ttl),
         "Content-Encoding" => "aesgcm",
-        "Encryption" => "salt=#{ub64(payload.salt)}"
+        "Encryption" => "salt=#{ub64(payload.salt)}",
+        "Urgency" => "high"
       })
 
     headers =
